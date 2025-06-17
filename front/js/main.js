@@ -54,14 +54,23 @@
 })();
 
 // padding no-ios
-// document.addEventListener("DOMContentLoaded", function() {
-//     let pageLoveBtn = document.querySelector('.fav-page__main-btn');
-//     let pageLoveLeft = document.querySelector('.fav-page__bonus-left');
-//     let pageLoveRight = document.querySelector('.fav-page__bonus-right');
-//
-//     if (!/iPad|iPhone|iPod|Mac/.test(navigator.userAgent)) {
-//         pageLoveBtn.classList.add('noios-padding');
-//         pageLoveLeft.classList.add('noios-padding');
-//         pageLoveRight.classList.add('noios-padding');
-//     }
-// });
+document.addEventListener("DOMContentLoaded", function() {
+    let pageBtn = document.querySelector('.fav-page__btn');
+
+    if (!/iPad|iPhone|iPod|Mac/.test(navigator.userAgent) || !/iPad|iPhone|iPod|Mac/.test(navigator.platform)) {
+        pageBtn.classList.add('noios-padding');
+    }
+});
+
+// for animation
+
+for (let i = 1; i <= 4; i++) {
+    const el = document.querySelector(`.fav-page__decor-gift-${i}`);
+    if (el) {
+        el.addEventListener('animationend', e => {
+            if (e.animationName === 'fadeIn') {
+                el.classList.add('start-sway');
+            }
+        });
+    }
+}
