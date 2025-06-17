@@ -74,3 +74,11 @@ for (let i = 1; i <= 4; i++) {
         });
     }
 }
+
+const sam = document.querySelector('.fav-page__sam');
+
+sam.addEventListener('animationend', (e) => {
+    if (e.animationName === 'appear') {
+        sam.classList.add('start-wiggle');
+    }
+});
